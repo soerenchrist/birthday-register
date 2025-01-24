@@ -14,6 +14,7 @@ interface TimeUnit {
 }
 
 export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
+  const [isLoading, setIsLoading] = useState(true)
   const [timeLeft, setTimeLeft] = useState<TimeUnit[]>(calculateTimeLeft())
 
   function calculateTimeLeft(): TimeUnit[] {
@@ -47,26 +48,31 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
       setTimeLeft(calculateTimeLeft())
     }, 1000)
 
+    setIsLoading(false)
+
     return () => clearInterval(timer)
   }, [targetDate])
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-      {timeLeft.map((unit, index) => (
-        <Card key={unit.label} className="overflow-hidden">
-          <CardContent className="p-6">
-            <motion.div
-              key={unit.value}
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              className="text-center"
-            >
-              <span className="block text-5xl md:text-6xl font-bold text-indigo-600 mb-2">{unit.value}</span>
+      {
+        timeLeft.map((unit, index) => (
+          <Card key={unit.label} className="overflow-hidden">
+            <CardContent className="p-6 text-center">
+              <motion.div
+                key={unit.value}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                className="text-center"
+              >
+                {isLoading ? (<span className="block text-5xl md:text-6xl font-bold text-indigo-600 mb-2">0</span>)
+                  : <span className="block text-5xl md:text-6xl font-bold text-indigo-600 mb-2">{unit.value}</span>
+                }
+              </motion.div>
               <span className="text-sm text-muted-foreground font-medium">{unit.label}</span>
-            </motion.div>
-          </CardContent>
-        </Card>
-      ))}
+            </CardContent>
+          </Card>
+        ))}
     </div>
   )
 }
