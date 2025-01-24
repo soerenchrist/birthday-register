@@ -2,6 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "./auth";
 
 async function handleAdminRoute(request: NextRequest) {
+  const pass = process.env.ADMIN_PASSWORD;
+  if (!pass) {
+    return NextResponse.redirect(new URL('/', request.url))
+  }
+
   const sess = await auth()
 
   if (!sess) {
@@ -10,6 +15,10 @@ async function handleAdminRoute(request: NextRequest) {
 }
 
 async function handleLoginRoute(request: NextRequest) {
+  const pass = process.env.ADMIN_PASSWORD;
+  if (!pass) {
+    return NextResponse.redirect(new URL('/', request.url))
+  }
   const sess = await auth()
 
   if (sess) {

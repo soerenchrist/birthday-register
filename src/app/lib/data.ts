@@ -10,3 +10,10 @@ export async function fetchGuestCount() {
   if (sum.length === 0) return 0;
   return sum[0].sum ?? 0;
 }
+
+export async function fetchGuests() {
+  const guests = await db.select()
+    .from(guestsTable);
+
+  return guests;
+}
