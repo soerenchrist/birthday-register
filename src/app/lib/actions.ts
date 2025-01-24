@@ -6,6 +6,8 @@ import { cookies } from "next/headers";
 import { z } from "zod"
 import { Guest } from "./types";
 import { eq } from "drizzle-orm";
+import { signIn } from "@/auth";
+import { AuthError } from "next-auth";
 
 const RegisterSchema = z.object({
   id: z.string().optional().nullish(),
@@ -93,4 +95,22 @@ async function setCookie(data: Guest) {
     httpOnly: true,
     sameSite: 'strict'
   })
+}
+
+export async function authenticate(_: string | undefined, formData: FormData) {
+  try {
+    await signIn('credentials', formData)
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case 'CredentialsSignin':
+          return 'Invalid credentials'
+        default:
+          return 'Something went wrong'
+      }
+    }
+
+    throw error;
+  }
+
 }
