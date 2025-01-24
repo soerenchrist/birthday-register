@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
 
@@ -15,9 +15,8 @@ interface TimeUnit {
 
 export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
   const [isLoading, setIsLoading] = useState(true)
-  const [timeLeft, setTimeLeft] = useState<TimeUnit[]>(calculateTimeLeft())
 
-  function calculateTimeLeft(): TimeUnit[] {
+  const calculateTimeLeft = useCallback((): TimeUnit[] => {
     const difference = +targetDate - +new Date()
 
     if (difference > 0) {
@@ -41,7 +40,9 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
       ]
     }
     return Array(4).fill({ value: 0, label: "" })
-  }
+  }, [targetDate])
+
+  const [timeLeft, setTimeLeft] = useState<TimeUnit[]>(calculateTimeLeft())
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -51,12 +52,12 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
     setIsLoading(false)
 
     return () => clearInterval(timer)
-  }, [targetDate])
+  }, [targetDate, calculateTimeLeft])
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
       {
-        timeLeft.map((unit, index) => (
+        timeLeft.map((unit) => (
           <Card key={unit.label} className="overflow-hidden">
             <CardContent className="p-6 text-center">
               <motion.div

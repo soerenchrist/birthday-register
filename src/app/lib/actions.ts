@@ -53,7 +53,6 @@ export async function register(_: RegistrationState, formData: FormData): Promis
 
 
   if (id) {
-    console.log("updating")
     const updatedGuest = await db.update(guestsTable).set({
       attending: attending,
       count: count,
@@ -63,7 +62,6 @@ export async function register(_: RegistrationState, formData: FormData): Promis
 
     await setCookie(updatedGuest[0])
   } else {
-    console.log("inserting")
     const insertedGuest = await db.insert(guestsTable).values({
       count: count,
       name: name,
