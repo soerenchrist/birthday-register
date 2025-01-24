@@ -95,9 +95,9 @@ export default function RegisterForm({ registeredInfo }: { registeredInfo?: Gues
               </div>
             </motion.div>)}
           {isRegistered ?
-            <Button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700">Info anpassen</Button>
+            <Button type="submit" className="font-semibold w-full bg-indigo-600 hover:bg-indigo-700">Info anpassen</Button>
             :
-            <Button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700">{attending
+            <Button type="submit" className="font-semibold w-full bg-indigo-600 hover:bg-indigo-700">{attending
               ? (count == 1 ? "Ich komme" : "Wir kommen")
               : "Ich komme nicht"}</Button>
           }
