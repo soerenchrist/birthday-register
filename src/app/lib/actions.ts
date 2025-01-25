@@ -95,7 +95,8 @@ async function setCookie(data: Guest) {
   const json = JSON.stringify(data)
   cookieStore.set('registered-info', json, {
     httpOnly: true,
-    sameSite: 'strict'
+    sameSite: 'strict',
+    expires: new Date("2025-05-30T00:00:00")
   })
 }
 
@@ -114,5 +115,4 @@ export async function authenticate(_: string | undefined, formData: FormData) {
 
     throw error;
   }
-
 }
