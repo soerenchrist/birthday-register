@@ -14,7 +14,7 @@ const RegisterSchema = z.object({
   name: z.string().nonempty({
     message: 'Bitte gib deinen Namen ein'
   }),
-  attending: z.coerce.boolean(),
+  attending: z.enum(["true", "false"]),
   count: z.coerce.number({
     message: 'Bitte melde mindestens 1 Person an'
   }).min(0)
@@ -37,7 +37,6 @@ export async function register(_: RegistrationState, formData: FormData): Promis
   })
 
   if (!validation.success) {
-    console.log(validation.error)
     return {
       errors: validation.error.flatten().fieldErrors,
       message: 'Missing fields. Failed to register'
@@ -45,7 +44,7 @@ export async function register(_: RegistrationState, formData: FormData): Promis
   }
 
   const { id, attending, name, count } = validation.data;
-  if (attending && count < 1) {
+  if (attending === "true" && count < 1) {
     return {
       errors: {
         count: ['Bitte melde mindestens 1 Person an']
@@ -58,7 +57,7 @@ export async function register(_: RegistrationState, formData: FormData): Promis
 
   if (id) {
     const updatedGuest = await db.update(guestsTable).set({
-      attending: attending,
+      attending: attending === "true",
       count: updatedCount,
       name: name
     }).where(eq(guestsTable.id, id))
@@ -69,7 +68,7 @@ export async function register(_: RegistrationState, formData: FormData): Promis
     const insertedGuest = await db.insert(guestsTable).values({
       count: updatedCount,
       name: name,
-      attending: attending
+      attending: attending === "true"
     }).returning()
     await setCookie(insertedGuest[0])
   }

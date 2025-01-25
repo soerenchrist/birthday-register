@@ -17,7 +17,7 @@ export default async function Home() {
       </h1>
 
       <CountdownTimer targetDate={date} />
-      <GuestCount attending={registeredData !== undefined} count={registeredData?.count} />
+      <GuestCount registered={registeredData !== undefined} attending={registeredData?.attending} count={registeredData?.count} />
 
       <RegisterForm registeredInfo={registeredData} />
       <PartyDetails date={date} address="Sportgelände SV Krumbach, Fabrikstr., 74838 Limbach-Krumbach" wishlist="Getränke statt Geschenke" />

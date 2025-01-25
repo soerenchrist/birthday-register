@@ -1,5 +1,6 @@
 "use client"
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import { motion } from "framer-motion"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -20,6 +21,23 @@ export default function RegisterForm({ registeredInfo }: { registeredInfo?: Gues
 
   const isRegistered = registeredInfo !== undefined
 
+  function handleRegister(formData: FormData) {
+    formAction(formData)
+
+    const attending = formData.get("attending")
+    const count = formData.get("count")
+
+    if (attending === "true") {
+      if (count === "1") {
+        toast.success("Danke für die Hilfe. Ich freue mich auf dich!")
+      } else {
+        toast.success("Danke für die Hilfe. Ich freue mich auf euch!")
+      }
+    } else {
+      toast.success("Danke für die Hilfe. Schade dass du nicht kommen kannst...")
+    }
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -31,7 +49,7 @@ export default function RegisterForm({ registeredInfo }: { registeredInfo?: Gues
       </CardHeader>
       <CardContent>
 
-        <form action={formAction} className="space-y-6">
+        <form action={handleRegister} className="space-y-6">
           {isRegistered && <input type="hidden" name="id" id="id" value={registeredInfo.id} />}
           <div className="space-y-2">
             <Label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
