@@ -4,12 +4,15 @@ import { auth } from "./auth";
 async function handleAdminRoute(request: NextRequest) {
   const pass = process.env.ADMIN_PASSWORD;
   if (!pass) {
+    console.log("Admin - Admin password not found, redirecting to /")
     return NextResponse.redirect(new URL('/', request.url))
   }
 
+  console.log("Admin - Admin password found")
   const sess = await auth()
 
   if (!sess) {
+    console.log("Admin - Not logged in, redirecting to /login")
     return NextResponse.redirect(new URL('/login', request.url))
   }
 }
@@ -17,11 +20,14 @@ async function handleAdminRoute(request: NextRequest) {
 async function handleLoginRoute(request: NextRequest) {
   const pass = process.env.ADMIN_PASSWORD;
   if (!pass) {
+    console.log("Login - Admin password not found, redirecting to /")
     return NextResponse.redirect(new URL('/', request.url))
   }
+  console.log("Login - Admin password found")
   const sess = await auth()
 
   if (sess) {
+    console.log("Login - Logged in, redirecting to /admin")
     return NextResponse.redirect(new URL('/admin', request.url))
   }
 }

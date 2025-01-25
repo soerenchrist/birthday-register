@@ -25,7 +25,7 @@ export const authConfig = {
   providers: [Credentials({
     async authorize(credentials) {
       const parsedCreds = z
-        .object({ username: z.string(), password: z.string().min(6) })
+        .object({ username: z.string(), password: z.string() })
         .safeParse(credentials)
 
       if (!parsedCreds.success) {
