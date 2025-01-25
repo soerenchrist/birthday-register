@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { readStoredCookie } from "./lib/actions";
 import CountdownTimer from "./ui/countdown-timer";
 import { GuestCount } from "./ui/guest-count";
@@ -10,7 +11,8 @@ export default async function Home() {
 
   return (
     <>
-      <h1 className="text-4xl md:text-5xl font-bold text-center text-indigo-900 mb-12">
+      <h1 className="text-4xl md:text-5xl font-bold text-center flex flex-row justify-center items-center text-[#282E47] mb-12">
+        <Image src="/icon.png" alt="icon" width={100} height={100} />
         Sörens 30er
       </h1>
 
