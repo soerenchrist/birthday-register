@@ -75,6 +75,7 @@ export async function register(_: RegistrationState, formData: FormData): Promis
 
 
   revalidatePath("/")
+  revalidatePath("/admin")
   return {
     errors: {},
     message: null
