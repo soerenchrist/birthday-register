@@ -17,7 +17,8 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
   const [isLoading, setIsLoading] = useState(true)
 
   const calculateTimeLeft = useCallback((): TimeUnit[] => {
-    const difference = +targetDate - +new Date()
+    const currentDate = new Date();
+    const difference = targetDate.getTime() - currentDate.getTime()
 
     if (difference > 0) {
       return [

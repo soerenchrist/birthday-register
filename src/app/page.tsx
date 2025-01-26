@@ -7,7 +7,7 @@ import RegisterForm from "./ui/register-form";
 
 export default async function Home() {
   const registeredData = await readStoredCookie()
-  const date = new Date("2025-05-28T19:00:00")
+  const date = new Date("2025-05-28T19:00:00+01:00")
 
   return (
     <>
