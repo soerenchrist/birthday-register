@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
+import { poppins } from "../lib/fonts";
 
 interface CountdownTimerProps {
   targetDate: Date
@@ -67,8 +68,8 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
                 animate={{ y: 0, opacity: 1 }}
                 className="text-center"
               >
-                {isLoading ? (<span className="block text-5xl md:text-6xl font-bold text-indigo-600 mb-2">0</span>)
-                  : <span className="block text-5xl md:text-6xl font-bold text-indigo-600 mb-2">{unit.value}</span>
+                {isLoading ? (<span className={`${poppins.className} block text-5xl md:text-6xl font-bold text-indigo-600 mb-2`}>0</span>)
+                  : <span className={`${poppins.className} block text-5xl md:text-6xl font-bold text-indigo-600 mb-2`}>{unit.value}</span>
                 }
               </motion.div>
               <span className="text-sm text-muted-foreground font-medium">{unit.label}</span>

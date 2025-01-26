@@ -4,6 +4,7 @@ import CountdownTimer from "./ui/countdown-timer";
 import { GuestCount } from "./ui/guest-count";
 import PartyDetails from "./ui/party-details";
 import RegisterForm from "./ui/register-form";
+import { poppins } from "./lib/fonts";
 
 export default async function Home() {
   const registeredData = await readStoredCookie()
@@ -11,7 +12,7 @@ export default async function Home() {
 
   return (
     <>
-      <h1 className="text-2xl md:text-4xl md:text-5xl font-bold text-center flex flex-row justify-center items-center text-[#282E47] mb-8">
+      <h1 className={`${poppins.className} text-2xl md:text-4xl md:text-5xl font-bold text-center flex flex-row justify-center items-center text-[#282E47] mb-8`}>
         <Image src="/icon.png" alt="icon" className="hidden md:block" width={100} height={100} />
         <Image src="/icon.png" alt="icon" className="md:hidden block" width={70} height={70} />
         Sörens 30er
