@@ -4,13 +4,12 @@ import { Calendar, Gift, MapPin } from "lucide-react"
 
 interface PartyDetailsProps {
   address: string
-  date: Date
   wishlist: string
 }
 
-export default function PartyDetails({ address, date, wishlist }: PartyDetailsProps) {
+export default function PartyDetails({ address, wishlist }: PartyDetailsProps) {
   return (
-    <div className="space-y-6 mt-8">
+    <div className="space-y-4 mt-8">
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -33,7 +32,7 @@ export default function PartyDetails({ address, date, wishlist }: PartyDetailsPr
         </CardContent>
       </Card>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-4">
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -44,19 +43,10 @@ export default function PartyDetails({ address, date, wishlist }: PartyDetailsPr
           <CardContent>
             <div className="space-y-2">
               <p className="text-lg font-medium">
-                {date.toLocaleDateString("de-DE", {
-                  weekday: "long",
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
+                Mittwoch, 28. Mai 2025
               </p>
               <p className="text-gray-600">
-                ab {date.toLocaleTimeString("de-DE", {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}{" "}
-                Uhr
+                ab 19:00 Uhr
               </p>
             </div>
           </CardContent>

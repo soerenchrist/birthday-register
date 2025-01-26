@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { fetchGuestCount } from "../lib/data";
 import { Users } from "lucide-react";
+import { ReactNode } from "react";
 
 type GuestCountProps = {
   registered: boolean,
@@ -17,7 +18,7 @@ export async function GuestCount({ registered, attending, count }: GuestCountPro
         <Users className="w-6 h-6 text-indigo-600" />
         <div className="flex justify-center">
           {registered ? <Registered count={count!} totalCount={totalCount} attending={attending!} />
-            : <h2 className="text-2xl font-semibold text-center">Sei einer von {totalCount} Gästen und feier mit mir!</h2>
+            : <Text>Sei einer von {totalCount} Gästen und feier mit mir!</Text>
           }
         </div >
       </CardContent>
@@ -30,7 +31,7 @@ function Registered({ count, totalCount, attending }: { attending: boolean, coun
     return (<Attending count={count} totalCount={totalCount} />)
   }
 
-  return <h2 className="text-2xl font-semibold">Schade, dass du nicht dabei sein kannst...</h2>
+  return <Text>Schade, dass du nicht dabei sein kannst...</Text>
 }
 
 function Attending({ count, totalCount }: { count: number, totalCount: number }) {
@@ -44,12 +45,16 @@ function Attending({ count, totalCount }: { count: number, totalCount: number })
 
 function SinglePersonAttending({ totalCount }: { totalCount: number }) {
   return (
-    <h2 className="text-2xl font-semibold">Du bist einer von {totalCount} Gästen. Ich freue mich auf dich!</h2>
+    <Text>Du bist einer von {totalCount} Gästen. Ich freue mich auf dich!</Text>
   )
 }
 
 function MultiplePersonsAttending({ totalCount }: { totalCount: number }) {
   return (
-    <h2 className="text-2xl font-semibold">Ihr gehört zu den {totalCount} Gästen. Ich freue mich auf euch!</h2>
+    <Text>Ihr gehört zu den {totalCount} Gästen. Ich freue mich auf euch!</Text>
   )
+}
+
+function Text({ children }: { children: ReactNode }) {
+  return <h2 className="text-md md:text-2xl font-semibold">{children}</h2>
 }

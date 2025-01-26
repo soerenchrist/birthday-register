@@ -23,7 +23,7 @@ export default function RootLayout({
         className="antialiased"
       >
         <div className="min-h-screen bg-gradient-to-b from-indigo-50 via-white to-indigo-50">
-          <div className="max-w-4xl mx-auto px-4 py-12 space-y-8">
+          <div className="max-w-4xl mx-auto px-4 py-8 space-y-4">
             {children}
           </div>
         </div>

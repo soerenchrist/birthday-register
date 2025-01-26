@@ -9,6 +9,7 @@ import { register, RegistrationState } from "@/app/lib/actions";
 import { useActionState, useState } from "react";
 import { Guest } from "../lib/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BookCheck } from "lucide-react";
 
 export default function RegisterForm({ registeredInfo }: { registeredInfo?: Guest }) {
   const [attending, setAttending] = useState(registeredInfo?.attending ?? true);
@@ -41,7 +42,8 @@ export default function RegisterForm({ registeredInfo }: { registeredInfo?: Gues
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-xl text-center">
+        <CardTitle className="flex items-center gap-2">
+          <BookCheck className="h-5 w-5 text-indigo-600" />
           {isRegistered
             ? "Teile mir mit wenn du deine Entscheidung geändert hast"
             : "Teile mir mit ob du kommst oder nicht"}

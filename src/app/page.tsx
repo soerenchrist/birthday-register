@@ -11,8 +11,9 @@ export default async function Home() {
 
   return (
     <>
-      <h1 className="text-4xl md:text-5xl font-bold text-center flex flex-row justify-center items-center text-[#282E47] mb-12">
-        <Image src="/icon.png" alt="icon" width={100} height={100} />
+      <h1 className="text-2xl md:text-4xl md:text-5xl font-bold text-center flex flex-row justify-center items-center text-[#282E47] mb-8">
+        <Image src="/icon.png" alt="icon" className="hidden md:block" width={100} height={100} />
+        <Image src="/icon.png" alt="icon" className="md:hidden block" width={70} height={70} />
         Sörens 30er
       </h1>
 
@@ -20,7 +21,7 @@ export default async function Home() {
       <GuestCount registered={registeredData !== undefined} attending={registeredData?.attending} count={registeredData?.count} />
 
       <RegisterForm registeredInfo={registeredData} />
-      <PartyDetails date={date} address="Sportgelände SV Krumbach, Fabrikstr., 74838 Limbach-Krumbach" wishlist="Getränke statt Geschenke" />
+      <PartyDetails address="Sportgelände SV Krumbach, Fabrikstr., 74838 Limbach-Krumbach" wishlist="Getränke statt Geschenke" />
     </>
   );
 }
