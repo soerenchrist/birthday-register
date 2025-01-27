@@ -4,10 +4,10 @@ This project is a simple Next.js project, to help me plan my birthday party. I c
 It includes a simple admin page to let me check the participants. \
 
 It is built using:
-    - [Next.js](https://nextjs.org)
-    - [Drizzle](https://orm.drizzle.team/) for the ORM
-    - [shadcn](https://ui.shadcn.com/) for components
-    - [Auth.js](https://authjs.dev/) for authentication for the admin page
+- [Next.js](https://nextjs.org)
+- [Drizzle](https://orm.drizzle.team/) for the ORM
+- [shadcn](https://ui.shadcn.com/) for components
+- [Auth.js](https://authjs.dev/) for authentication for the admin page
 
 ## Getting Started
 
