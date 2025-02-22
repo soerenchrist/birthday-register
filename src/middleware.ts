@@ -38,7 +38,7 @@ async function handleIndexRoute(request: NextRequest) {
     console.log("No token configured")
     return
   }
-  const token = request.nextUrl.searchParams.get('token')
+  const token = request.nextUrl.searchParams.get('t')
   if (!token) {
     const tokenCookie = request.cookies.get("token")
     if (!tokenCookie) {

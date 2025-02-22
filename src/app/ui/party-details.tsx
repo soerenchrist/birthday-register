@@ -13,7 +13,7 @@ export default function PartyDetails({ address, wishlist }: PartyDetailsProps) {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <MapPin className="h-5 w-5 text-blue-700" />
+            <MapPin className="h-5 w-5 text-blue-800" />
             Location
           </CardTitle>
         </CardHeader>
@@ -36,7 +36,7 @@ export default function PartyDetails({ address, wishlist }: PartyDetailsProps) {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Calendar className="h-5 w-5 text-blue-700" />
+              <Calendar className="h-5 w-5 text-blue-800" />
               Datum & Zeit
             </CardTitle>
           </CardHeader>
@@ -55,7 +55,7 @@ export default function PartyDetails({ address, wishlist }: PartyDetailsProps) {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Gift className="h-5 w-5 text-blue-700" />
+              <Gift className="h-5 w-5 text-blue-800" />
               Wunschliste
             </CardTitle>
           </CardHeader>

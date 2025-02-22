@@ -43,7 +43,7 @@ export default function RegisterForm({ registeredInfo }: { registeredInfo?: Gues
     <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <BookCheck className="h-5 w-5 text-blue-700" />
+          <BookCheck className="h-5 w-5 text-blue-800" />
           {isRegistered
             ? "Teile mir mit wenn du deine Entscheidung geändert hast"
             : "Teile mir mit ob du kommst oder nicht"}
