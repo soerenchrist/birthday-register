@@ -14,7 +14,7 @@ export default function LoginForm() {
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
         <CardTitle className="text-2xl font-bold text-center flex items-center justify-center">
-          <Lock className="mr-2 h-6 w-6 text-indigo-600" />
+          <Lock className="mr-2 h-6 w-6 text-blue-700" />
           Login
         </CardTitle>
       </CardHeader>
@@ -28,7 +28,7 @@ export default function LoginForm() {
               type="text"
               placeholder="Gib deinen Benutzernamen ein"
               required
-              className="transition-all duration-200 focus:ring-2 focus:ring-indigo-500"
+              className="transition-all duration-200 focus:ring-2 focus:ring-blue-600"
             />
           </div>
           <div className="space-y-2">
@@ -39,10 +39,10 @@ export default function LoginForm() {
               placeholder="Gib dein Passwort ein"
               name="password"
               required
-              className="transition-all duration-200 focus:ring-2 focus:ring-indigo-500"
+              className="transition-all duration-200 focus:ring-2 focus:ring-blue-600"
             />
           </div>
-          <Button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700"
+          <Button type="submit" className="w-full bg-blue-700 hover:bg-blue-800"
             aria-disabled={isPending}>
             Anmelden
           </Button>

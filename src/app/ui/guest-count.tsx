@@ -15,7 +15,7 @@ export async function GuestCount({ registered, attending, count }: GuestCountPro
   return (
     <Card className="mb-8">
       <CardContent className="flex items-center justify-center space-x-4 py-6">
-        <Users className="w-6 h-6 text-indigo-600" />
+        <Users className="w-6 h-6 text-blue-800" />
         <div className="flex justify-center">
           {registered ? <Registered count={count!} totalCount={totalCount} attending={attending!} />
             : <Text>Sei einer von {totalCount} Gästen und feier mit mir!</Text>

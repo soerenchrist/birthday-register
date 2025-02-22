@@ -43,7 +43,7 @@ export default function RegisterForm({ registeredInfo }: { registeredInfo?: Gues
     <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <BookCheck className="h-5 w-5 text-indigo-600" />
+          <BookCheck className="h-5 w-5 text-blue-700" />
           {isRegistered
             ? "Teile mir mit wenn du deine Entscheidung geändert hast"
             : "Teile mir mit ob du kommst oder nicht"}
@@ -115,9 +115,9 @@ export default function RegisterForm({ registeredInfo }: { registeredInfo?: Gues
               </div>
             </motion.div>)}
           {isRegistered ?
-            <Button type="submit" className="font-semibold w-full bg-indigo-600 hover:bg-indigo-700">Info anpassen</Button>
+            <Button type="submit" className="font-semibold w-full bg-blue-700 hover:bg-blue-800">Info anpassen</Button>
             :
-            <Button type="submit" className="font-semibold w-full bg-indigo-600 hover:bg-indigo-700">{attending
+            <Button type="submit" className="font-semibold w-full bg-blue-700 hover:bg-blue-800">{attending
               ? (count == 1 ? "Ich komme" : "Wir kommen")
               : "Ich komme nicht"}</Button>
           }

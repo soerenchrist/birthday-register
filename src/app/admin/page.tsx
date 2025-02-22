@@ -12,7 +12,7 @@ export default async function Page() {
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl font-bold flex items-center">
-            <Users className="mr-2 h-6 w-6 text-indigo-600" />
+            <Users className="mr-2 h-6 w-6 text-blue-700" />
             Registrierte Gäste
           </CardTitle>
         </CardHeader>
@@ -43,13 +43,13 @@ export default async function Page() {
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl font-bold flex items-center">
-            <UserPlus className="mr-2 h-6 w-6 text-indigo-600" />
+            <UserPlus className="mr-2 h-6 w-6 text-blue-700" />
             Zusammenfassung
           </CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-lg">
-            Gesamtzahl der Gäste: <span className="font-bold text-indigo-600">{totalGuests}</span>
+            Gesamtzahl der Gäste: <span className="font-bold text-blue-700">{totalGuests}</span>
           </p>
         </CardContent>
       </Card>
