@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { readStoredCookie } from "./lib/actions";
 import CountdownTimer from "./ui/countdown-timer";
-import { GuestCount } from "./ui/guest-count";
 import PartyDetails from "./ui/party-details";
 import RegisterForm from "./ui/register-form";
 import { poppins } from "./lib/fonts";
@@ -19,8 +18,8 @@ export default async function Home() {
       </h1>
 
       <CountdownTimer targetDate={date} />
-      <GuestCount registered={registeredData !== undefined} attending={registeredData?.attending} count={registeredData?.count} />
-
+      {//      <GuestCount registered={registeredData !== undefined} attending={registeredData?.attending} count={registeredData?.count} />
+      }
       <RegisterForm registeredInfo={registeredData} />
       <PartyDetails address="Sportgelände SV Krumbach, Fabrikstr., 74838 Limbach-Krumbach" wishlist="Getränke statt Geschenke" />
     </>
